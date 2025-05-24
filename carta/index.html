@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cartinha S2</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, lab(52.02% 46.89 23.8), hsl(0, 0%, 0%), hwb(300 33% 67%), lab(52.02% 46.89 23.8) );
+            font-family: 'Cursive', cursive;
+            overflow-x: hidden;
+        }
+        .carta {
+            max-width: 700px;
+            margin: 60px auto;
+            background-color: #f7f7f7;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            color: hsl(0, 0%, 0%);
+            animation: fadeIn 3s ease-in;
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            text-align: center;
+            color: hwb(0 0% 100%);
+        }
+        .data {
+            text-align: center;
+            font-size: 18px;
+            color: hsl(0, 0%, 0%);
+            margin-bottom: 10px;
+        }
+        .aviso {
+            text-align: center;
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        .assinatura {
+            margin-top: 40px;
+            text-align: right;
+            font-style: italic;
+        }
+        .heart {
+            position: fixed;
+            font-size: 24px;
+            animation: float 6s infinite ease-in;
+            opacity: 0.8;
+            z-index: 0;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-10vh) translateX(30px); opacity: 0; }
+        }
+
+        .botao-musica {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-block;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+    max-width: 260px;
+    text-align: center;
+}
+
+.botao-musica:hover {
+    background-color: hsl(0, 54%, 39%); 
+    color: white;
+    transform: scale(1.05);
+}
+
+.botao-continuar {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 20px;
+    display: block;
+    margin: 40px auto 0;
+    text-align: center;
+    max-width: 300px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.botao-continuar:hover {
+    background-color: hsl(0, 61%, 38%);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Corações -->
+    <div class="heart" style="left: 10%; animation-delay: 1s;">🤍</div>
+    <div class="heart" style="left: 30%; animation-delay: 2s;">🩶</div>
+    <div class="heart" style="left: 50%; animation-delay: 1s;">❤️‍🔥</div>
+    <div class="heart" style="left: 70%; animation-delay: 2s;">🩶</div>
+    <div class="heart" style="left: 85%; animation-delay: 1s;">🤍</div>
+    <div class="heart" style="left: 10%; animation-delay: 2s;">❤️‍🔥</div>
+    <div class="heart" style="left: 30%; animation-delay: 1s;">🩶</div>
+    <div class="heart" style="left: 50%; animation-delay: 2s;">🤍</div>
+    <div class="heart" style="left: 70%; animation-delay: 1s;">❤️‍🔥</div>
+    <div class="heart" style="left: 85%; animation-delay: 2s;">🤍</div>
+
+    <div class="carta">
+        <h1>Para meu Nego🖤</h1>
+        <div class="data">💍05/04/2025❤️‍🩹</div>
+    
+         <button onclick="playMusic()" class="botao-musica">Clique para tocar 🎧</button>
+
+  <audio id="bgMusic" loop>
+    <source src="iwannabeyours.mp3.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function playMusic() {
+      const music = document.getElementById("bgMusic");
+      music.volume = 0.5;
+      music.play().catch((error) => {
+        alert("Erro ao tocar a música. Verifique permissões ou clique novamente.");
+        console.error(error);
+      });
+    }
+  </script>
+
+</script>
+
+        <p style="text-align: center;">
+            <a href="https://open.spotify.com/intl-pt/track/5XeFesFbtLpXzIVDNQP22n?si=3106e5689e454c07" target="_blank" class="botao-musica">
+                🎧Nossa música<strong>❤️‍🔥</strong>
+            </a>
+        </p>
+
+        <p>Meu amor,</p>
+        <p>
+            Escrever para você é como tentar traduzir o céu em palavras — IMPOSSÍVEL!<br>
+            O que sinto por você é inefável, tão vasto e intenso que nenhuma linguagem parece suficiente para expressar.
+        </p>
+        <p>
+            Você chegou como um furacão silencioso, trazendo paz ao caos, como se o mundo parasse por um segundo só para me mostrar: “É ele.” E desde então, tudo faz sentido. Com você, me sinto completa. Como se minha alma finalmente tivesse encontrado a outra metade que sempre procurou (meio perdida, meio louca, CRAZY FOR YOU BABY!😜).
+        </p>
+        <p>
+            Nosso amor tem seus dias de silêncio e tempestade, mas até nesses momentos mais solitários ou difíceis, saber que te tenho muda tudo. Você transforma até o dia mais triste em um pedaço de eternidade que vale a pena. Estar com você é enxergar poesia no caos, é aprender que até os dias ruins fazem parte de algo maior, algo verdadeiro.
+        </p>
+        <p>
+            E falando em verdade… nossa família... somos mesmo como a Família Addams — um pouco sombrios, cheios de humor estranho, mas incrivelmente unidos, leais e apaixonados do nosso próprio jeito excêntrico e puro, E COMO AMO NOSSA FAMÍLIA 🥲❤️.
+        </p>
+        <p>
+            Se for pra viver nesse mundo maluco, que seja ao seu lado, com nosso jeito único de amar, rir e construir nossos sonhos.
+        </p>
+        <p>
+            <em>
+                Lembre-se sempre:<br><br>
+                - And if you go...<br>
+                - I wanna go with you...<br>
+                - And if you die...<br>
+                - I wanna die with you...<br><br>
+                - Take your hand and walk away.
+            </em>
+        </p>
+        <p>
+            Sou feliz por ter você, por dividir a vida com alguém que me entende nos silêncios e nas loucuras. Alguém que caminha comigo mesmo nos dias nublados.
+        </p>
+        <p><strong>FELIZ DIA DOS NAMORADOS, MEU GOMEZ...QUE SEJAMOS MUITO INFELIZES UM COM O OUTRO! &lt;3</strong></p>
+        <p><strong>EuTeAmoMilMilhõesEmTodosOsUniversos...sem vírgula e muito menos espaços❤️.</strong></p>
+
+        <img src="https://i.redd.it/gfd9ri4yfqga1.png" alt="Casal se abraçando com fundo romântico" width="300" style="display:block; margin:auto; border-radius: 15px; margin-bottom: 30px;">
+
+        <div class="assinatura">
+            Com muito amor,<br>
+            Sua Mortícia 🖤
+        </div>
+    </div>
+
+    <a href="continua.html" class="botao-continuar">VOCÊ ACHA QUE ACABOU?</a>
+
+</body>
+</html>
+
+        
