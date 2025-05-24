@@ -1,0 +1,171 @@
+<div id="finalizacao" style="
+  max-width: 700px;
+  margin: 60px auto;
+  text-align: center;
+  font-family: 'Cursive', cursive;
+  position: relative;
+  z-index: 1;
+  padding: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+              url('https://i.pinimg.com/originals/9e/7a/41/9e7a412b716c42b099b6581dc0d02db2.jpg') no-repeat center center/cover;
+  color: lab(100% 0.01 -0.01);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+">
+
+  <h2 style="font-size: 2.5rem; margin-bottom: 20px;">
+    E é isso, meu nego!💖
+  </h2>
+
+  <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 30px;">
+    Obrigada por ser meu parceiro de vida, parceiro de risadas, e principalmente, minha metade!!<br>
+    Que nosso amor continue crescendo, igual minha lista de jogos que gostaria de ser sua DUO 😜🎮<br>
+    Agora, só me resta dizer: <strong>QUE A FORÇA ESTEJA COM VOCÊ ❤️</strong>
+  </p>
+
+<div class="casal">
+
+  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaHJxM3dmdHlmeW1qdWFqcnkyaXlmdHU5ZmJ0NG10dW1sZXNsdDJwYiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/pINm99NHcbAru/giphy.gif" alt="casal" style="max-width: 200px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 0 10px rgba(255,255,255,0.3);">
+
+</div>
+
+<div>
+
+<p style="text-align: center;">
+            <a href="https://open.spotify.com/intl-pt/track/1xEEN1FMnnrJmdhbCWXCQj?si=5da9ccc717e14216" target="_blank" class="botao-musica">
+            <strong>Só para finalizar, gostaria que essa música tocasse no nosso casamento 🖤</strong>
+            </a>
+
+            
+ <a href="index.html.html" class="botao-musica">🔙 Voltar para o começo</a>
+        </p>
+
+</div>
+
+<style>
+
+.casal {
+
+    display: block;
+  margin: 30px auto;
+  max-width: 300px;
+  border-radius: 15px;}
+
+  
+        .botao-musica {
+    background-color: #000000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    display: inline-block;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+    max-width: 260px;
+    text-align: center;
+}
+
+.botao-musica:hover {
+    background-color: hsl(0, 54%, 39%); 
+    color: white;
+    transform: scale(1.05);}
+
+</style>
+  <button id="btnCelebrar" style="
+    background: linear-gradient(45deg, #ff4e50, #f9d423);
+    border: none;
+    border-radius: 30px;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 78, 80, 0.7);
+    transition: transform 0.3s ease;
+  ">
+    🎉confetinhos! 🎉
+  </button>
+
+  <canvas id="confettiCanvas" style="position: fixed; pointer-events: none; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;"></canvas>
+
+</div>
+
+ <a href="index.html" class="botao-voltar">🔙 Voltar para o começo</a>
+
+<script>
+  const btn = document.getElementById('btnCelebrar');
+  const canvas = document.getElementById('confettiCanvas');
+  const ctx = canvas.getContext('2d');
+  let confettiPieces = [];
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  function randomRange(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  class Confetti {
+    constructor() {
+      this.x = randomRange(0, canvas.width);
+      this.y = randomRange(-20, 0);
+      this.size = randomRange(5, 10);
+      this.speed = randomRange(2, 5);
+      this.angle = randomRange(0, 2 * Math.PI);
+      this.angularSpeed = randomRange(0.01, 0.05);
+      this.color = `hsl(${randomRange(0, 360)}, 70%, 60%)`;
+    }
+    update() {
+      this.y += this.speed;
+      this.angle += this.angularSpeed;
+      if (this.y > canvas.height) {
+        this.y = randomRange(-20, 0);
+        this.x = randomRange(0, canvas.width);
+      }
+    }
+    draw() {
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.angle);
+      ctx.fillStyle = this.color;
+      ctx.fillRect(-this.size/2, -this.size/2, this.size, this.size);
+      ctx.restore();
+    }
+  }
+
+  function createConfetti() {
+    confettiPieces = [];
+    for (let i = 0; i < 150; i++) {
+      confettiPieces.push(new Confetti());
+    }
+  }
+
+  function animateConfetti() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    confettiPieces.forEach(piece => {
+      piece.update();
+      piece.draw();
+    });
+    requestAnimationFrame(animateConfetti);
+  }
+
+  btn.addEventListener('click', () => {
+    createConfetti();
+    animateConfetti();
+    btn.disabled = true;
+    btn.style.transform = 'scale(0.9)';
+    setTimeout(() => {
+      btn.style.transform = 'scale(1)';
+      btn.disabled = false;
+    }, 800);
+  });
+</script>

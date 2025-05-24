@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Continuação 💌</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, hsl(0, 0%, 0%), hwb(300 42% 57%));
+      font-family: 'Cursive', cursive;
+      color: hsl(0, 0%, 0%);
+      text-align: center;
+    }
+    .carta {
+      max-width: 700px;
+      margin: 60px auto;
+      background-color: #f7f7f7;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      position: relative;
+    }
+    /* Envelope */
+    #envelope {
+      width: 320px;
+      height: 220px;
+      margin: 30px auto 10px;
+      background: #d0b084;
+      border-radius: 15px;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.6s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      overflow: hidden;
+      perspective: 1000px;
+    }
+    /* Tampa do envelope */
+    #envelope::before {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 220px;
+      background: #a3784d;
+      clip-path: polygon(0 0, 100% 0, 50% 50%);
+      top: 0;
+      left: 0;
+      transition: transform 0.6s ease;
+      transform-origin: top center;
+      z-index: 10;
+      pointer-events: none;
+    }
+    /* Abre tampa (vira para trás) */
+    #envelope.open::before {
+      transform: rotateX(-180deg);
+    }
+    #envelope.close::before {
+      transform: rotateX(0deg);
+    }
+    /* Conteúdo interno do envelope */
+    #envelope .conteudo {
+      position: absolute;
+      top: 60px;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      pointer-events: none;
+      overflow-y: auto;
+    }
+    /* Mostra conteúdo ao abrir */
+    #envelope.open .conteudo {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    button {
+      background-color: #000;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 12px 25px;
+      font-size: 16px;
+      margin: 10px 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    button:hover {
+      background-color: #1DB954;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="carta">
+    <h1>Abre ai 🤭</h1>
+
+    <!-- Envelope -->
+    <div id="envelope" class="close" title="Clique para abrir/fechar o envelope">
+      <div class="conteudo">
+        <h2>'Toda vez que você sangra em busca da grandeza
+Implacavelmente você sobrevive...' Por isso tenho muito orgulho de você e mais ainda de ser SUA mulher 🤭❤️‍🔥</h2>
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExazY2MjJsZjExdHY4dzQ4amd4cTQwbzI0dWU0emMwY3hsdnlzcTQ4ZiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/1hqb8LwPS2xCNCpWH8/giphy.gif" alt="lola" style="max-width: 100%; border-radius: 15px; margin-top: 15px;">
+      </div>
+    </div>
+
+    <!-- Botões -->
+    <button id="open">Abrir Envelope</button>
+   <button onclick="location.href='contin.html'">Fechar envelope</button>
+    <button onclick="playMusic()" class="botao-musica">Clique para tocar 🎧</button>
+    <button onclick="location.href='index.html.html'">🔙 Voltar para o começo</button>
+
+  </div>
+  </div>
+
+ <audio id="bgMusic" loop>
+    <source src="iwannabeyours.mp3.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function playMusic() {
+      const music = document.getElementById("bgMusic");
+      music.volume = 0.5;
+      music.play().catch((error) => {
+        alert("Erro ao tocar a música. Verifique permissões ou clique novamente.");
+        console.error(error);
+      });
+    }
+  </script>
+
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      var envelope = $("#envelope");
+      var btn_open = $("#open");
+      var btn_reset = $("#reset");
+
+      envelope.click(function () {
+        open();
+      });
+      btn_open.click(function () {
+        open();
+      });
+      btn_reset.click(function () {
+        close();
+      });
+
+      function open() {
+        envelope.addClass("open").removeClass("close");
+      }
+      function close() {
+        envelope.addClass("close").removeClass("open");
+      }
+    });
+  </script>
+</body>
+</html>
